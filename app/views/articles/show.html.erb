@@ -16,6 +16,7 @@
 </p>
 
 <h2>Comments</h2>
+<% # we're on the loop! %>
 <% @article.comments.each do |comment| %>
 	<p>
 		<strong>Commenter:</strong>
@@ -26,12 +27,14 @@
 		<%= comment.body %>
 	</p>
 	<p>
+		<% # article_comment_path are set in routes as a article_comment. Mind these namings! %>
 		<%= link_to 'Delete', article_comment_path(@article.id, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
 	</p>
 <% end %>
 
 <h2>Add a comment</h2>
 
+<% # this is a form %>
 <%= form_for([@article, @article.comments.build]) do |f| %>
 	<p>
 		<%= f.label :commenter %><br />
