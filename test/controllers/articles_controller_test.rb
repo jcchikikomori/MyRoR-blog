@@ -9,11 +9,13 @@ class ArticlesControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:articles)
+    assert_select "title", "MyRoRBlog Articles"
   end
 
   test "should get new" do
     get :new
     assert_response :success
+    assert_select "title", "MyRoRBlog Articles"
   end
 
   test "should create article" do
@@ -27,11 +29,13 @@ class ArticlesControllerTest < ActionController::TestCase
   test "should show article" do
     get :show, id: @article
     assert_response :success
+    assert_select "title", @article.title
   end
 
   test "should get edit" do
     get :edit, id: @article
     assert_response :success
+    assert_select "title", "MyRoRBlog Articles"
   end
 
   test "should update article" do
