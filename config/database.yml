@@ -53,8 +53,8 @@ production:
   adapter: postgresql
   host: ec2-54-235-126-62.compute-1.amazonaws.com
   database: deqfmuqlc9o42s
-  username: yphnfgibksaerr
-  password: <%= ENV['MYROR-BLOG_DATABASE_PASSWORD'] %>
-  # password: LVYBOZuWyRaG9_jsaZR-xuUO9e
-  # port: 5432
+  username: zqemnbvhnsgfyl
+  # password: <%= ENV['MYROR-BLOG_DATABASE_PASSWORD'] %>
+  password: bD4_renZSftQPxVdBasKxgiHDF
+  port: 5432
 
