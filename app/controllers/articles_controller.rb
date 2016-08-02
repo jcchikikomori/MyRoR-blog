@@ -4,12 +4,14 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    # @articles = Article.all
+    @articles = Article.joins("LEFT JOIN `users` ON users.id = articles.user_id").group("articles.user_id").select("articles.*, users.email AS user_email")
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    # @article = Article.select("articles.*, users.email AS user_email").joins("LEFT JOIN `users` ON users.id = articles.user_id").where("articles.id", params[:id])
   end
 
   # GET /articles/new
@@ -19,12 +21,14 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    # @user = User.all
   end
 
   # POST /articles
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @user = User.all
 
     respond_to do |format|
       if @article.save
